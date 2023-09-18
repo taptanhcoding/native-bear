@@ -46,7 +46,7 @@ export const GirlScreen: React.FC = () => {
       <Page>
         {token ? (
           <View>
-            <Heading>Mã số em bé 👅👅👅💋💋💋💋👅👅👅💋👅👅👅👅👅 là: {token}</Heading>
+            <Heading>Mã số anh già là: {token}</Heading>
             <Heading>Triệu hồi ngay thui 😋</Heading>
           </View>
         ) : (
