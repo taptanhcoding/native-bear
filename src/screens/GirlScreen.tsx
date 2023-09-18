@@ -34,7 +34,7 @@ const token = "ExponentPushToken[8htlKvA3zTZKJgzfjf_DZ_]";
 
 export const GirlScreen: React.FC = () => {
   const [tokenInput, setTokenInput] = useState("");
-  const [token, setToken] = useState();
+  const [token, setToken] = useState<string>();
   return (
     <View>
       <Header
@@ -46,7 +46,7 @@ export const GirlScreen: React.FC = () => {
       <Page>
         {token ? (
           <View>
-            <Heading>Mã số anh già là: {token.id}</Heading>
+            <Heading>Mã số em bé 👅👅👅💋💋💋💋👅👅👅💋👅👅👅👅👅 là: {token}</Heading>
             <Heading>Triệu hồi ngay thui 😋</Heading>
           </View>
         ) : (
@@ -54,14 +54,14 @@ export const GirlScreen: React.FC = () => {
             <Input
               label="Mã của gấu"
               placeholder="Nhập mã số của gấu"
-              onChange={setTokenInput}
+              onChange={(e)=>setTokenInput(e.nativeEvent.text)}
               value={tokenInput}
             />
             <Button
               title={"Xác nhận mã số"}
               onPress={async () => {
-                const storedToken = await getToken(tokenInput);
-                setToken(storedToken);
+                // const storedToken = await getToken(tokenInput);
+                setToken(tokenInput);
               }}
             />
           </View>
@@ -73,7 +73,7 @@ export const GirlScreen: React.FC = () => {
               <SummonButton
                 color="#e74c3c"
                 onPress={() =>
-                  sendPushNotification(token.token, "anh già", "🧋Thèm tà sữa")
+                  sendPushNotification(token, "em bé 👅👅👅💋💋💋💋👅👅👅💋👅👅👅👅👅", "🧋Thèm tà sữa")
                 }
               >
                 <SummonButtonText>🧋Thèm tà sữa</SummonButtonText>
@@ -82,8 +82,8 @@ export const GirlScreen: React.FC = () => {
                 color="#2980b9"
                 onPress={() =>
                   sendPushNotification(
-                    token.token,
-                    "anh già",
+                    token,
+                    "em bé 👅👅👅💋💋💋💋👅👅👅💋👅👅👅👅👅",
                     "😋Anh ơi! Đóiiiiiiii"
                   )
                 }
@@ -93,7 +93,7 @@ export const GirlScreen: React.FC = () => {
               <SummonButton
                 color="#2ecc71"
                 onPress={() =>
-                  sendPushNotification(token.token, "anh già", "🫦Bé nhớ anh")
+                  sendPushNotification(token, "em bé 👅👅👅💋💋💋💋👅👅👅💋👅👅👅👅👅", "🫦Bé nhớ anh")
                 }
               >
                 <SummonButtonText>🫦Bé nhớ anh</SummonButtonText>
@@ -101,7 +101,7 @@ export const GirlScreen: React.FC = () => {
               <SummonButton
                 color="#f1c40f"
                 onPress={() =>
-                  sendPushNotification(token.token, "anh già", "🏃Anh qua ik")
+                  sendPushNotification(token, "em bé 👅👅👅💋💋💋💋👅👅👅💋👅👅👅👅👅", "🏃Anh qua ik")
                 }
               >
                 <SummonButtonText>🏃Anh qua ik</SummonButtonText>

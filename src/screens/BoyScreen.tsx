@@ -1,4 +1,4 @@
-import { View, Platform } from "react-native";
+import { View, Platform, Text } from "react-native";
 import { Button, Header } from "react-native-elements";
 import { Heading, Page } from "../components";
 import * as Notifications from "expo-notifications";
@@ -42,7 +42,7 @@ async function registerForPushNotificationsAsync() {
 }
 
 export const BoyScreen: React.FC = () => {
-  const [idGau, setIdGau] = useState<TOKEN | undefined>();
+  const [idGau, setIdGau] = useState<string | undefined>();
   return (
     <View>
       <Header
@@ -52,14 +52,23 @@ export const BoyScreen: React.FC = () => {
         }}
       />
       <Page>
-        <Heading>{idGau ? `Mã số của bạn là ${idGau.id}` : 'Bạn chưa có mã số, bấm vào đây để lấy mã'}</Heading>
+        <Heading>
+          {idGau ? (
+            <View>
+              <Text>Mã số của bạn là :</Text>
+              <Text selectable>{idGau}</Text>
+            </View>
+          ) : (
+            "Bạn chưa có mã số, bấm vào đây để lấy mã"
+          )}
+        </Heading>
         <Button
           title={"Lấy mã"}
           onPress={async () => {
-            const token = await registerForPushNotificationsAsync(); 
+            const token = await registerForPushNotificationsAsync();
             if (token) {
-              const rs = await submitToken(token);
-              setIdGau(rs);
+              // const rs = await submitToken(token);
+              setIdGau(token);
             } else alert("Thất bại 👿👿👿");
           }}
         />
